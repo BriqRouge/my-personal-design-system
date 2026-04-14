@@ -182,6 +182,117 @@ Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
 
 ---
 
+## 9. Composants existants
+
+### Button (`packages/react/src/components/Button/`)
+- **Commit** : `b7b2f04`
+- **Fichiers** : `Button.tsx`, `Button.module.css`, `Button.test.tsx`, `index.ts`
+- **Story** : `packages/storybook/src/stories/components/Button.stories.tsx`
+- **API** : `children`, `variant` (`contained`|`outlined`), `colorScheme` (`default`|`light`|`dark`), `size` (`nm`|`md`), `leftIcon`, `rightIcon`, `disabled` + props HTML natives
+- **Tokens** : `color/background/button/idle`, `color/background/button/hovered`, `color/background/button/hovered-black`, `color/border/button/*`, `color/text/button/*`, `color/icon/button/*`, `border-radius/button`
+- **Tests** : 16 tests — 16 passants
+
+---
+
+## 10. Tests
+
+### Couverture minimale par composant
+- Rendu de base (children, props par défaut, className, props HTML)
+- Icônes (leftIcon, rightIcon, icon-only)
+- État disabled (désactivé, click bloqué)
+- Interactions (click)
+- Accessibilité axe (contained, outlined light, outlined dark, disabled, icon-only)
+
+### Commandes
+```bash
+# Depuis packages/react
+pnpm test --reporter=verbose
+
+# Depuis la racine
+pnpm --filter @brique-rouge/react test --reporter=verbose
+```
+
+---
+
+## 11. Storybook
+
+### Commande
+```bash
+pnpm --filter @brique-rouge/storybook dev
+```
+
+### Conventions stories
+- Titre : `Composants/NomComposant`
+- `tags: ['autodocs']`
+- Documentation en **français**
+- Stories obligatoires : Default, Variants, Tailles, État Disabled, Playground
+- `layout: 'centered'` par défaut
+- `argTypes` documentés en français
+
+---
+
+## 12. Figma MCP
+
+### Outil principal
+`get_design_context` avec `fileKey` + `nodeId` explicites
+
+### Clé de fichier
+`NZtxQVYKRqeaGcC7hT5pjw`
+
+### Variables
+`get_variable_defs` pour accéder aux tokens Figma
+
+### Collections Figma (pour référence)
+- Colors (`color/*`)
+- Sizing (`sizing/*`)
+- Spacing (`spacing/*`)
+- Typography (`typography/*`)
+- Border Radius (`border-radius/*`)
+
+---
+
+## 13. Décisions techniques définitives
+
+Ces décisions sont prises et ne se remettent pas en question sauf demande explicite de Damien.
+
+| Décision | Choix |
+|---|---|
+| Monorepo | pnpm + Turborepo |
+| Framework | React + TypeScript strict |
+| Style | CSS Modules + CSS Variables |
+| Tests | Vitest + Testing Library + jest-axe |
+| Documentation | Storybook, en français |
+| Tokens | Style Dictionary v4, `usesDtcg: true` |
+| Nomenclature tokens | Préfixe x (`x10`, `x12`…) — alignée sur Figma |
+| Figma | Source de vérité absolue |
+| Code Connect | Prévu — à mettre en place après stabilisation des composants |
+| Component tokens | Intentionnellement minimaliste — pas de sur-tokenisation |
+
+---
+
+## 14. Prochaines étapes
+
+1. Prochain composant — **à définir** (node Figma à renseigner)
+2. **Code Connect** — mapping Figma ↔ React
+3. **GitHub Actions** CI/CD
+4. Automatisation progressive du workflow
+
+---
+
+## 15. Ce que Claude Code ne doit pas faire
+
+- Modifier l'architecture sans validation préalable de claude.ai et Damien
+- Prendre des décisions de design
+- Corriger ce qui semble étrange dans Figma
+- Toucher à des fichiers hors du périmètre de la tâche en cours
+- Supprimer des tests existants
+- Introduire des dépendances non validées
+- Utiliser `any` en TypeScript
+- Utiliser `dangerouslySetInnerHTML`
+- Utiliser Tailwind
+
+---
+
 
 
 ## Packages
