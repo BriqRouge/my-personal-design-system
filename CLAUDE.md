@@ -59,9 +59,9 @@ design-system/
 ```
 
 **Namespaces** :
-`@brique-rouge/tokens
-@brique-rouge/react
-@brique-rouge/storybook`
+`@brique-rouge-DS/tokens
+@brique-rouge-DS/react
+@brique-rouge-DS/storybook`
 
 ---
 
@@ -87,11 +87,19 @@ Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
 
 ### Exports package tokens
 ```
-@brique-rouge/tokens/css/colors-light
-@brique-rouge/tokens/css/colors-dark
-@brique-rouge/tokens/css/numbers
-@brique-rouge/tokens/css/typography
+@brique-rouge-DS/tokens/css/colors-light
+@brique-rouge-DS/tokens/css/colors-dark
+@brique-rouge-DS/tokens/css/numbers
+@brique-rouge-DS/tokens/css/typography
 ```
+### Imports Storybook preview
+```js
+@brique-rouge-DS/tokens/css/colors-light
+@brique-rouge-DS/tokens/css/numbers
+@brique-rouge-DS/tokens/css/typography
+```
+
+---
 
 ## Packages
 
