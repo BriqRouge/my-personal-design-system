@@ -20,7 +20,7 @@ importers:
 
   packages/react:
     dependencies:
-      '@starter/tokens':
+      '@brique-rouge/tokens':
         specifier: workspace:*
         version: link:../tokens
     devDependencies:
@@ -60,10 +60,10 @@ importers:
 
   packages/storybook:
     dependencies:
-      '@starter/react':
+      '@brique-rouge/react':
         specifier: workspace:*
         version: link:../react
-      '@starter/tokens':
+      '@brique-rouge/tokens':
         specifier: workspace:*
         version: link:../tokens
     devDependencies:

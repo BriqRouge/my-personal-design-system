@@ -1,4 +1,4 @@
-# Déploiement Storybook sur GitHub Pages à chaque push sur main
+﻿# DÃ©ploiement Storybook sur GitHub Pages Ã  chaque push sur main
 name: Deploy Storybook
 
 on:
@@ -28,8 +28,8 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm turbo run build --filter=@starter/tokens
-      - run: pnpm turbo run build --filter=@starter/storybook
+      - run: pnpm turbo run build --filter=@brique-rouge/tokens
+      - run: pnpm turbo run build --filter=@brique-rouge/storybook
       - uses: actions/upload-pages-artifact@v3
         with:
           path: packages/storybook/storybook-static

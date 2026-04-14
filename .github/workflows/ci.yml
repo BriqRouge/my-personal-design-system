@@ -1,4 +1,4 @@
-# CI — Tests automatiques sur push et pull request vers main
+﻿# CI â€” Tests automatiques sur push et pull request vers main
 name: CI
 
 on:
@@ -52,12 +52,12 @@ jobs:
           node-version: 20
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm turbo run build --filter=@starter/tokens
+      - run: pnpm turbo run build --filter=@brique-rouge/tokens
       - name: Tests
         run: |
           TEST_FILES=$(find packages -name "*.test.tsx" -o -name "*.test.ts" 2>/dev/null)
           if [ -z "$TEST_FILES" ]; then
-            echo "Aucun fichier de test trouvé — étape ignorée."
+            echo "Aucun fichier de test trouvÃ© â€” Ã©tape ignorÃ©e."
             exit 0
           fi
           pnpm test

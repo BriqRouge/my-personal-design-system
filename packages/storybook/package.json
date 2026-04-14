@@ -7,11 +7,10 @@
     "build": "storybook build",
     "lint": "tsc --noEmit"
   },
- "dependencies": {
   "dependencies": {
-  "@brique-rouge/react": "workspace:*",
-  "@brique-rouge/tokens": "workspace:*"
-},
+    "@brique-rouge/react": "workspace:*",
+    "@brique-rouge/tokens": "workspace:*"
+  },
   "devDependencies": {
     "@storybook/addon-a11y": "^8.6.18",
     "@storybook/addon-controls": "^8.1.0",
