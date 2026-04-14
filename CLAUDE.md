@@ -5,14 +5,84 @@
 Ce repo est un Design System généré à partir du template `design-system-starter`.
 Il suit une architecture monorepo avec pnpm + Turborepo.
 
-## Stack technique
+---
 
-- pnpm + Turborepo
-- React + TypeScript strict
-- CSS Modules + CSS Variables
-- Style Dictionary v4
-- Storybook v8
-- Vitest + Testing Library + jest-axe
+## 1. Contexte du projet
+
+Design System open-source de Romain Richard.
+
+- **GitHub** : https://github.com/BriqRouge/my-personal-design-system
+- **Figma** : fichier `NZtxQVYKRqeaGcC7hT5pjw` ("Portfolio Damien Ramzi")
+- **Licence** : MIT
+
+Damien est **Senior Product Designer** (7 ans de design, dont 1 ans sur la constructiion d'un DS).
+
+---
+
+## 2. Rôles
+
+| Qui | Rôle |
+|---|---|
+| Damien | Senior Product Designer — user research, ux stratégie, conception Figma, décisions design, validation |
+| Claude (claude.ai) | Tech Lead / Architecte — réflexion, architecture, composants complexes |
+| Claude Code | Exécution — remplacement de fichiers, tâches répétitives, automatisation |
+
+**Claude Code ne prend pas de décisions d'architecture.** Il exécute ce qui a été décidé avec claude.ai.
+
+---
+
+## 3. Stack technique
+
+```
+pnpm + Turborepo (monorepo)
+TypeScript strict (pas de any)
+React
+CSS Modules + CSS Variables
+Storybook 8
+Vitest + Testing Library + jest-axe
+```
+
+---
+
+## 4. Structure du monorepo
+
+```
+design-system/
+├── packages/
+│   ├── tokens/          # Design tokens → CSS Variables + JSON
+│   ├── react/           # Composants React
+│   └── storybook/       # Documentation et vitrine
+├── CLAUDE.md
+├── turbo.json
+├── pnpm-workspace.yaml
+└── tsconfig.json
+```
+
+**Namespaces** :
+
+---
+
+## 5. Tokens
+
+### Source de vérité
+Figma Variables — fichier `skRy27piDeBGQwD8Bi0EAU`
+
+### Collections Figma
+- Primitives
+- Semantic Numbers
+- Semantic Colors (light / dark)
+- Typography
+
+### Build (Style Dictionary v4)
+- `usesDtcg: true`
+- Transformers custom : `color/figma-hex`, `number/px-or-opacity`
+- Format Figma JSON propriétaire : `$value` est un objet `{hex, alpha, components}` — toujours lire via `token.original.$value`
+- Sorties : `colors-light.css`, `colors-dark.css`, `numbers.css`, `typography.css`, `tokens.json`
+
+### Nomenclature
+Échelle numérique (`spacing.01`, `spacing.02`…) — pas de t-shirt sizing.
+
+---
 
 ## Packages
 
