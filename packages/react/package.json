@@ -1,5 +1,5 @@
 {
-  "name": "@starter/react",
+  "name": "@brique-rouge/react",
   "version": "0.0.0",
   "private": true,
   "main": "./src/index.ts",
@@ -9,8 +9,8 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@starter/tokens": "workspace:*"
-  },
+  "@brique-rouge/tokens": "workspace:*"
+},
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.0",
     "@testing-library/react": "^15.0.0",
