@@ -1,8 +1,8 @@
-# CLAUDE.md — Contexte du projet pour Claude Code
+﻿# CLAUDE.md â€” Contexte du projet pour Claude Code
 
 ## Ce projet
 
-Ce repo est un Design System généré à partir du template `design-system-starter`.
+Ce repo est un Design System gÃ©nÃ©rÃ© Ã  partir du template `design-system-starter`.
 Il suit une architecture monorepo avec pnpm + Turborepo.
 
 ---
@@ -19,15 +19,15 @@ Damien est **Senior Product Designer** (7 ans de design, dont 1 ans sur la const
 
 ---
 
-## 2. Rôles
+## 2. RÃ´les
 
-| Qui | Rôle |
+| Qui | RÃ´le |
 |---|---|
-| Damien | Senior Product Designer — user research, ux stratégie, conception Figma, décisions design, validation |
-| Claude (claude.ai) | Tech Lead / Architecte — réflexion, architecture, composants complexes |
-| Claude Code | Exécution — remplacement de fichiers, tâches répétitives, automatisation |
+| Damien | Senior Product Designer â€” user research, ux stratÃ©gie, conception Figma, dÃ©cisions design, validation |
+| Claude (claude.ai) | Tech Lead / Architecte â€” rÃ©flexion, architecture, composants complexes |
+| Claude Code | ExÃ©cution â€” remplacement de fichiers, tÃ¢ches rÃ©pÃ©titives, automatisation |
 
-**Claude Code ne prend pas de décisions d'architecture.** Il exécute ce qui a été décidé avec claude.ai.
+**Claude Code ne prend pas de dÃ©cisions d'architecture.** Il exÃ©cute ce qui a Ã©tÃ© dÃ©cidÃ© avec claude.ai.
 
 ---
 
@@ -48,14 +48,14 @@ Vitest + Testing Library + jest-axe
 
 ```
 design-system/
-├── packages/
-│   ├── tokens/          # Design tokens → CSS Variables + JSON
-│   ├── react/           # Composants React
-│   └── storybook/       # Documentation et vitrine
-├── CLAUDE.md
-├── turbo.json
-├── pnpm-workspace.yaml
-└── tsconfig.json
+â”œâ”€â”€ packages/
+â”‚   â”œâ”€â”€ tokens/          # Design tokens â†’ CSS Variables + JSON
+â”‚   â”œâ”€â”€ react/           # Composants React
+â”‚   â””â”€â”€ storybook/       # Documentation et vitrine
+â”œâ”€â”€ CLAUDE.md
+â”œâ”€â”€ turbo.json
+â”œâ”€â”€ pnpm-workspace.yaml
+â””â”€â”€ tsconfig.json
 ```
 
 **Namespaces** :
@@ -67,8 +67,8 @@ design-system/
 
 ## 5. Tokens
 
-### Source de vérité
-Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
+### Source de vÃ©ritÃ©
+Figma Variables â€” fichier `NZtxQVYKRqeaGcC7hT5pjw`
 
 ### Collections Figma
 - Primitives
@@ -79,11 +79,11 @@ Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
 ### Build (Style Dictionary v4)
 - `usesDtcg: true`
 - Transformers custom : `color/figma-hex`, `number/px-or-opacity`
-- Format Figma JSON propriétaire : `$value` est un objet `{hex, alpha, components}` — toujours lire via `token.original.$value`
+- Format Figma JSON propriÃ©taire : `$value` est un objet `{hex, alpha, components}` â€” toujours lire via `token.original.$value`
 - Sorties : `colors-light.css`, `colors-dark.css`, `numbers.css`, `typography.css`, `tokens.json`
 
 ### Nomenclature
-Échelle numérique (`spacing.01`, `spacing.02`…) — pas de t-shirt sizing.
+Ã‰chelle numÃ©rique (`spacing.01`, `spacing.02`â€¦) â€” pas de t-shirt sizing.
 
 ### Exports package tokens
 ```
@@ -100,59 +100,59 @@ Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
 ```
 ---
 
-## 6. Règles absolues — à ne jamais enfreindre
+## 6. RÃ¨gles absolues â€” Ã  ne jamais enfreindre
 
-### 6.1 Figma est la source de vérité
-- Toujours lire Figma avant d'implémenter ou modifier un composant.
-- Reproduire exactement ce qui est dans Figma : variants, props, états, tailles, tokens.
-- Si quelque chose semble étrange ou incohérent : **le signaler, mais l'implémenter quand même**.
-- C'est Romain qui décide si c'est une erreur ou une intention design.
-- **Ne jamais corriger, améliorer ou interpréter le design de sa propre initiative.**
+### 6.1 Figma est la source de vÃ©ritÃ©
+- Toujours lire Figma avant d'implÃ©menter ou modifier un composant.
+- Reproduire exactement ce qui est dans Figma : variants, props, Ã©tats, tailles, tokens.
+- Si quelque chose semble Ã©trange ou incohÃ©rent : **le signaler, mais l'implÃ©menter quand mÃªme**.
+- C'est Romain qui dÃ©cide si c'est une erreur ou une intention design.
+- **Ne jamais corriger, amÃ©liorer ou interprÃ©ter le design de sa propre initiative.**
 
-### 6.2 Anti-régression
-- Identifier le périmètre exact de chaque changement avant de toucher au code.
-- Ne modifier que ce périmètre — rien d'autre.
-- Ne jamais modifier ce qui fonctionne déjà.
-- Valider mentalement chaque ligne modifiée avant de l'écrire.
+### 6.2 Anti-rÃ©gression
+- Identifier le pÃ©rimÃ¨tre exact de chaque changement avant de toucher au code.
+- Ne modifier que ce pÃ©rimÃ¨tre â€” rien d'autre.
+- Ne jamais modifier ce qui fonctionne dÃ©jÃ .
+- Valider mentalement chaque ligne modifiÃ©e avant de l'Ã©crire.
 
-### 6.3 Accessibilité (WCAG 2.1 AA — non négociable)
-- Navigation clavier complète
+### 6.3 AccessibilitÃ© (WCAG 2.1 AA â€” non nÃ©gociable)
+- Navigation clavier complÃ¨te
 - Focus visible
 - ARIA correct
-- Compatibilité lecteurs d'écran
+- CompatibilitÃ© lecteurs d'Ã©cran
 - Contrastes suffisants
-- Logique d'états accessible
+- Logique d'Ã©tats accessible
 
-### 6.4 Sécurité
+### 6.4 SÃ©curitÃ©
 - Pas de `dangerouslySetInnerHTML`
 - Pas de patterns XSS
-- Pas de dépendances inutiles
+- Pas de dÃ©pendances inutiles
 
-### 6.5 Qualité de code
-- TypeScript strict — pas de `any`
+### 6.5 QualitÃ© de code
+- TypeScript strict â€” pas de `any`
 - CSS Modules + CSS Variables uniquement
 - Pas de Tailwind
-- Pas de sur-ingénierie
-- Code lisible, maintenable, documenté
+- Pas de sur-ingÃ©nierie
+- Code lisible, maintenable, documentÃ©
 
 ---
 
 ## 7. Workflow composants
 
-### Ordre impératif pour chaque nouveau composant ou modification
+### Ordre impÃ©ratif pour chaque nouveau composant ou modification
 
 ```
 1. Lire Figma via MCP (get_design_context)
 2. Faire le diff avec le code existant
-3. Identifier le périmètre exact des changements
-4. Implémenter uniquement ce qui a changé
-5. Vérifier les tests existants — ne pas les casser
-6. Ajouter ou mettre à jour les tests
-7. Mettre à jour la story Storybook
+3. Identifier le pÃ©rimÃ¨tre exact des changements
+4. ImplÃ©menter uniquement ce qui a changÃ©
+5. VÃ©rifier les tests existants â€” ne pas les casser
+6. Ajouter ou mettre Ã  jour les tests
+7. Mettre Ã  jour la story Storybook
 8. Push GitHub
 ```
 
-### IDs Figma — format
+### IDs Figma â€” format
 - URLs Figma : format tiret (`18-765`)
 - Appels MCP : format deux-points (`18:765`)
 
@@ -162,23 +162,23 @@ Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
 
 ### API
 - `children` pour le contenu textuel (pas de prop `label`)
-- Props booléennes sans valeur : `<Button loading />` pas `<Button loading={true} />`
-- `forwardRef` systématique
-- `displayName` défini
+- Props boolÃ©ennes sans valeur : `<Button loading />` pas `<Button loading={true} />`
+- `forwardRef` systÃ©matique
+- `displayName` dÃ©fini
 
 ### CSS Modules
-- Classes : kebab-case avec préfixe sémantique (`level-primary`, `size-m`, `is-loading`)
-- États disabled : sélecteur `:disabled` natif uniquement — **pas** `[aria-disabled='true']`
-- L'attribut `aria-disabled` sert à la communication avec les lecteurs d'écran, pas au style
+- Classes : kebab-case avec prÃ©fixe sÃ©mantique (`level-primary`, `size-m`, `is-loading`)
+- Ã‰tats disabled : sÃ©lecteur `:disabled` natif uniquement â€” **pas** `[aria-disabled='true']`
+- L'attribut `aria-disabled` sert Ã  la communication avec les lecteurs d'Ã©cran, pas au style
 
-### États loading
-- Pas de `disabled` HTML natif en état loading
-- `aria-busy="true"` + `aria-disabled="true"` exposés
-- Click bloqué via handler (`if (loading) return`)
-- `loadingLabel` (défaut : `"Chargement en cours"`) dans un `<span class="srOnly">`
+### Ã‰tats loading
+- Pas de `disabled` HTML natif en Ã©tat loading
+- `aria-busy="true"` + `aria-disabled="true"` exposÃ©s
+- Click bloquÃ© via handler (`if (loading) return`)
+- `loadingLabel` (dÃ©faut : `"Chargement en cours"`) dans un `<span class="srOnly">`
 
 ### data-attributes
-- `data-level` et `data-size` obligatoires sur le `<button>` natif (utilisés par les tests)
+- `data-level` et `data-size` obligatoires sur le `<button>` natif (utilisÃ©s par les tests)
 
 ---
 
@@ -190,18 +190,18 @@ Figma Variables — fichier `NZtxQVYKRqeaGcC7hT5pjw`
 - **Story** : `packages/storybook/src/stories/components/Button.stories.tsx`
 - **API** : `children`, `variant` (`contained`|`outlined`), `colorScheme` (`default`|`light`|`dark`), `size` (`nm`|`md`), `leftIcon`, `rightIcon`, `disabled` + props HTML natives
 - **Tokens** : `color/background/button/idle`, `color/background/button/hovered`, `color/background/button/hovered-black`, `color/border/button/*`, `color/text/button/*`, `color/icon/button/*`, `border-radius/button`
-- **Tests** : 16 tests — 16 passants
+- **Tests** : 16 tests â€” 16 passants
 
 ---
 
 ## 10. Tests
 
 ### Couverture minimale par composant
-- Rendu de base (children, props par défaut, className, props HTML)
-- Icônes (leftIcon, rightIcon, icon-only)
-- État disabled (désactivé, click bloqué)
+- Rendu de base (children, props par dÃ©faut, className, props HTML)
+- IcÃ´nes (leftIcon, rightIcon, icon-only)
+- Ã‰tat disabled (dÃ©sactivÃ©, click bloquÃ©)
 - Interactions (click)
-- Accessibilité axe (contained, outlined light, outlined dark, disabled, icon-only)
+- AccessibilitÃ© axe (contained, outlined light, outlined dark, disabled, icon-only)
 
 ### Commandes
 ```bash
@@ -224,10 +224,10 @@ pnpm --filter @brique-rouge/storybook dev
 ### Conventions stories
 - Titre : `Composants/NomComposant`
 - `tags: ['autodocs']`
-- Documentation en **français**
-- Stories obligatoires : Default, Variants, Tailles, État Disabled, Playground
-- `layout: 'centered'` par défaut
-- `argTypes` documentés en français
+- Documentation en **franÃ§ais**
+- Stories obligatoires : Default, Variants, Tailles, Ã‰tat Disabled, Playground
+- `layout: 'centered'` par dÃ©faut
+- `argTypes` documentÃ©s en franÃ§ais
 
 ---
 
@@ -236,13 +236,13 @@ pnpm --filter @brique-rouge/storybook dev
 ### Outil principal
 `get_design_context` avec `fileKey` + `nodeId` explicites
 
-### Clé de fichier
+### ClÃ© de fichier
 `NZtxQVYKRqeaGcC7hT5pjw`
 
 ### Variables
-`get_variable_defs` pour accéder aux tokens Figma
+`get_variable_defs` pour accÃ©der aux tokens Figma
 
-### Collections Figma (pour référence)
+### Collections Figma (pour rÃ©fÃ©rence)
 - Colors (`color/*`)
 - Sizing (`sizing/*`)
 - Spacing (`spacing/*`)
@@ -251,29 +251,29 @@ pnpm --filter @brique-rouge/storybook dev
 
 ---
 
-## 13. Décisions techniques définitives
+## 13. DÃ©cisions techniques dÃ©finitives
 
-Ces décisions sont prises et ne se remettent pas en question sauf demande explicite de Damien.
+Ces dÃ©cisions sont prises et ne se remettent pas en question sauf demande explicite de Damien.
 
-| Décision | Choix |
+| DÃ©cision | Choix |
 |---|---|
 | Monorepo | pnpm + Turborepo |
 | Framework | React + TypeScript strict |
 | Style | CSS Modules + CSS Variables |
 | Tests | Vitest + Testing Library + jest-axe |
-| Documentation | Storybook, en français |
+| Documentation | Storybook, en franÃ§ais |
 | Tokens | Style Dictionary v4, `usesDtcg: true` |
-| Nomenclature tokens | Préfixe x (`x10`, `x12`…) — alignée sur Figma |
-| Figma | Source de vérité absolue |
-| Code Connect | Prévu — à mettre en place après stabilisation des composants |
-| Component tokens | Intentionnellement minimaliste — pas de sur-tokenisation |
+| Nomenclature tokens | PrÃ©fixe x (`x10`, `x12`â€¦) â€” alignÃ©e sur Figma |
+| Figma | Source de vÃ©ritÃ© absolue |
+| Code Connect | PrÃ©vu â€” Ã  mettre en place aprÃ¨s stabilisation des composants |
+| Component tokens | Intentionnellement minimaliste â€” pas de sur-tokenisation |
 
 ---
 
-## 14. Prochaines étapes
+## 14. Prochaines Ã©tapes
 
-1. Prochain composant — **à définir** (node Figma à renseigner)
-2. **Code Connect** — mapping Figma ↔ React
+1. Prochain composant â€” **Ã  dÃ©finir** (node Figma Ã  renseigner)
+2. **Code Connect** â€” mapping Figma â†” React
 3. **GitHub Actions** CI/CD
 4. Automatisation progressive du workflow
 
@@ -281,12 +281,12 @@ Ces décisions sont prises et ne se remettent pas en question sauf demande expli
 
 ## 15. Ce que Claude Code ne doit pas faire
 
-- Modifier l'architecture sans validation préalable de claude.ai et Damien
-- Prendre des décisions de design
-- Corriger ce qui semble étrange dans Figma
-- Toucher à des fichiers hors du périmètre de la tâche en cours
+- Modifier l'architecture sans validation prÃ©alable de claude.ai et Damien
+- Prendre des dÃ©cisions de design
+- Corriger ce qui semble Ã©trange dans Figma
+- Toucher Ã  des fichiers hors du pÃ©rimÃ¨tre de la tÃ¢che en cours
 - Supprimer des tests existants
-- Introduire des dépendances non validées
+- Introduire des dÃ©pendances non validÃ©es
 - Utiliser `any` en TypeScript
 - Utiliser `dangerouslySetInnerHTML`
 - Utiliser Tailwind
@@ -295,11 +295,11 @@ Ces décisions sont prises et ne se remettent pas en question sauf demande expli
 
 ## 16. Workflow Git
 
-Le branch `main` est protégé. Toute modification passe obligatoirement par une PR.
+Le branch `main` est protÃ©gÃ©. Toute modification passe obligatoirement par une PR.
 
-Workflow à suivre pour chaque tâche :
+Workflow Ã  suivre pour chaque tÃ¢che :
 
-1. Créer une branche : `feat/component-button` (convention `feat/component-[name]` ou `feat/screens-[name]`)
+1. CrÃ©er une branche : `feat/component-button` (convention `feat/component-[name]` ou `feat/screens-[name]`)
 2. Committer les fichiers sur cette branche
 3. Push la branche : `git push origin feat/component-button`
 4. Ouvrir une PR sur GitHub vers `main`
@@ -311,57 +311,58 @@ Ne jamais force push.
 
 ---
 
-## 17. Génération d'interfaces
+## 17. GÃ©nÃ©ration d'interfaces
 
-Avant toute génération d'interface ou de maquette Figma, consulter `COMPONENTS.md`.
+Avant toute gÃ©nÃ©ration d'interface ou de maquette Figma, consulter `COMPONENTS.md`.
 
 Ce fichier liste :
 - les composants React disponibles avec leur API exacte
 - les node IDs Figma correspondants
-- l'ensemble des tokens CSS à utiliser
+- l'ensemble des tokens CSS Ã  utiliser
 
-Règle absolue : aucune valeur arbitraire (couleur hex, px hardcodé, etc.) si un token existe.
+RÃ¨gle absolue : aucune valeur arbitraire (couleur hex, px hardcodÃ©, etc.) si un token existe.
 
 ---
 
-## 18. Workflow — Génération d'interfaces et maquettes Figma
+## 18. Workflow â€” GÃ©nÃ©ration d'interfaces et maquettes Figma
 
-Ce workflow permet de générer des interfaces codées conformes au DS,
+Ce workflow permet de gÃ©nÃ©rer des interfaces codÃ©es conformes au DS,
 puis de les exporter comme maquettes Figma.
 
-### Étape 1 — Description (claude.ai)
-Décrire l'écran en langage naturel à Claude.
-Claude génère le prompt structuré pour Claude Code.
+### Ã‰tape 1 â€” Description (claude.ai)
+DÃ©crire l'Ã©cran en langage naturel Ã  Claude.
+Claude gÃ©nÃ¨re le prompt structurÃ© pour Claude Code.
 
-### Étape 2 — Génération du code (Claude Code)
-Claude Code lit COMPONENTS.md comme référence unique et produit :
+### Ã‰tape 2 â€” GÃ©nÃ©ration du code (Claude Code)
+Claude Code lit COMPONENTS.md comme rÃ©fÃ©rence unique et produit :
 - `packages/storybook/src/stories/screens/NomEcran.tsx`
 - `packages/storybook/src/stories/screens/NomEcran.module.css`
 - `packages/storybook/src/stories/screens/NomEcran.stories.tsx`
 
-Règles strictes :
+RÃ¨gles strictes :
 - Uniquement les composants de `@brique-rouge/react`
 - Uniquement les tokens CSS de `@brique-rouge/tokens` (variables CSS, aucune valeur arbitraire)
-- Accessibilité WCAG 2.1 AA obligatoire
+- AccessibilitÃ© WCAG 2.1 AA obligatoire
 - Story sous `Screens/NomEcran`
 
-### Étape 3 — Itération design (localhost:6007)
+### Ã‰tape 3 â€” ItÃ©ration design (localhost:6007)
 Valider le rendu dans Storybook.
-Itérer via des prompts de correction jusqu'à validation complète.
-Ne passer à l'étape suivante qu'une fois le rendu validé.
+ItÃ©rer via des prompts de correction jusqu'Ã  validation complÃ¨te.
+Ne passer Ã  l'Ã©tape suivante qu'une fois le rendu validÃ©.
 
-### Étape 4 — Génération maquette Figma (à mettre en place)
-La génération de maquettes Figma nécessite un outil d'écriture MCP local
-(ex. figma-use) — à configurer ultérieurement.
-Page cible : "Screens" (à créer dans le fichier `NZtxQVYKRqeaGcC7hT5pjw`)
+### Ã‰tape 4 â€” GÃ©nÃ©ration maquette Figma (Ã  mettre en place)
+La gÃ©nÃ©ration de maquettes Figma nÃ©cessite un outil d'Ã©criture MCP local
+(ex. figma-use) â€” Ã  configurer ultÃ©rieurement.
+Page cible : "Screens" (Ã  crÃ©er dans le fichier `NZtxQVYKRqeaGcC7hT5pjw`)
 
 ### Identification des composants DS dans le DOM
-Tous les composants portent `data-component="ds-br-[nom]"` sur leur nœud racine.
-Vérification rapide dans DevTools Console :
+Tous les composants portent `data-component="ds-br-[nom]"` sur leur nÅ“ud racine.
+VÃ©rification rapide dans DevTools Console :
 
 ```js
 document.querySelectorAll('[data-component^="ds-br"]')
   .forEach(el => console.log(el.dataset.component))
 ```
 
+---
 ---

@@ -1,6 +1,6 @@
-// Chargement global des tokens CSS dans Storybook
-// Requiert d'avoir lancé `make tokens` au préalable.
-import '@starter/tokens/css/index';
+﻿// Chargement global des tokens CSS dans Storybook
+// Requiert d'avoir lancÃ© `make tokens` au prÃ©alable.
+import '@brique-rouge/tokens/css/index';
 
 import type { Preview } from '@storybook/react';
 
@@ -18,13 +18,13 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Démarrage',
+          'DÃ©marrage',
           [
             'Bienvenue',
-            'Étape 1 — Tokens Figma',
-            'Étape 2 — Premier composant',
-            'Étape 3 — CI-CD',
-            'Étape 4 — Code Connect',
+            'Ã‰tape 1 â€” Tokens Figma',
+            'Ã‰tape 2 â€” Premier composant',
+            'Ã‰tape 3 â€” CI-CD',
+            'Ã‰tape 4 â€” Code Connect',
           ],
           'Fondations',
           ['Couleurs', 'Typographie', 'Espacements'],

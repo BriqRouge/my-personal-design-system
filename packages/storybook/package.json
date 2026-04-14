@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "@brique-rouge/storybook",
   "version": "0.0.0",
   "private": true,
@@ -8,6 +8,7 @@
     "lint": "tsc --noEmit"
   },
  "dependencies": {
+  "dependencies": {
   "@brique-rouge/react": "workspace:*",
   "@brique-rouge/tokens": "workspace:*"
 },
