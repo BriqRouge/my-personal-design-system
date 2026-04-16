@@ -7,6 +7,9 @@ build/
 storybook-static/
 coverage/
 
+# Claude Code — settings locaux
+.claude/settings.local.json
+
 # Exports Figma Variables (fichiers sources non versionnés)
 tokens.json
 packages/tokens/design-tokens.tokens.json
