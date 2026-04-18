@@ -3,3 +3,6 @@ export type { ButtonProps, ButtonVariant, ButtonColorScheme, ButtonSize } from '
 
 export { FrameLogo } from './components/FrameLogo';
 export type { FrameLogoProps } from './components/FrameLogo';
+
+export { LogoCompanies } from './components/LogoCompanies';
+export type { LogoCompaniesProps, LogoCompany, LogoSize } from './components/LogoCompanies';
