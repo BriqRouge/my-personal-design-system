@@ -1,12 +1,14 @@
 import { forwardRef } from 'react';
 import styles from './FrameLogo.module.css';
 
-export interface FrameLogoProps extends React.HTMLAttributes<HTMLDivElement> {
+interface FrameLogoProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Source de l'image */
   src: string;
+  /** Texte alternatif pour l'accessibilité */
   alt?: string;
 }
 
-export const FrameLogo = forwardRef<HTMLDivElement, FrameLogoProps>(
+const FrameLogo = forwardRef<HTMLDivElement, FrameLogoProps>(
   ({ src, alt = '', className, ...props }, ref) => {
     const classes = [styles.frameLogo, className].filter(Boolean).join(' ');
 
@@ -24,3 +26,6 @@ export const FrameLogo = forwardRef<HTMLDivElement, FrameLogoProps>(
 );
 
 FrameLogo.displayName = 'FrameLogo';
+
+export { FrameLogo };
+export type { FrameLogoProps };
