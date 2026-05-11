@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DropdownMenuButton } from '@brique-rouge/react';
 
-const LOGO_PLACEHOLDER = 'https://placehold.co/16x16/e5e5e5/737373?text=L';
-
 const meta = {
   title: 'Composants/DropdownMenuButton',
   component: DropdownMenuButton,
@@ -19,12 +17,17 @@ const meta = {
       description: 'Nom de la compagnie ou du projet',
       control: 'text',
     },
+    company: {
+      description: "Identifiant de la compagnie — détermine le logo et la couleur d'accent",
+      control: 'select',
+      options: ['odaptos', 'bpce', 'ibp', 'vinci', 'conseil-constitutionnel', 'tidal', 'steam', 'squared-icon'],
+    },
     src: {
-      description: 'URL du logo',
+      description: 'URL du logo personnalisé (ignoré si company est fourni)',
       control: 'text',
     },
     alt: {
-      description: 'Texte alternatif du logo',
+      description: 'Texte alternatif du logo (ignoré si company est fourni)',
       control: 'text',
     },
     rightIcon: {
@@ -48,8 +51,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: 'Odaptos',
-    src: LOGO_PLACEHOLDER,
-    alt: 'Logo Odaptos',
+    company: 'odaptos',
   },
 };
 
@@ -57,8 +59,7 @@ export const Activated: Story = {
   name: 'Activé',
   args: {
     children: 'Odaptos',
-    src: LOGO_PLACEHOLDER,
-    alt: 'Logo Odaptos',
+    company: 'odaptos',
     activated: true,
   },
 };
@@ -67,8 +68,7 @@ export const AvecLienExterne: Story = {
   name: 'Avec lien externe',
   args: {
     children: 'iBP',
-    src: LOGO_PLACEHOLDER,
-    alt: 'Logo iBP',
+    company: 'ibp',
     activated: true,
     rightIcon: true,
   },
@@ -78,29 +78,21 @@ export const Disabled: Story = {
   name: 'Désactivé (projet à venir)',
   args: {
     children: 'Showcase à venir',
-    src: LOGO_PLACEHOLDER,
-    alt: '',
+    company: 'vinci',
     disabled: true,
   },
 };
 
-export const TousLesEtats: Story = {
-  name: 'Tous les états',
-  args: { children: 'Odaptos', src: LOGO_PLACEHOLDER, alt: 'Logo Odaptos' },
+export const CouleursDeMarque: Story = {
+  name: 'Couleurs de marque (hover)',
+  args: { children: 'Odaptos', company: 'odaptos' },
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-      <DropdownMenuButton src={LOGO_PLACEHOLDER} alt="Logo A">
-        Company Name
-      </DropdownMenuButton>
-      <DropdownMenuButton src={LOGO_PLACEHOLDER} alt="Logo B" activated>
-        Odaptos
-      </DropdownMenuButton>
-      <DropdownMenuButton src={LOGO_PLACEHOLDER} alt="Logo C" activated rightIcon>
-        iBP
-      </DropdownMenuButton>
-      <DropdownMenuButton src={LOGO_PLACEHOLDER} alt="" disabled>
-        Showcase à venir
-      </DropdownMenuButton>
+      <DropdownMenuButton company="odaptos">Odaptos</DropdownMenuButton>
+      <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
+      <DropdownMenuButton company="ibp" rightIcon>iBP</DropdownMenuButton>
+      <DropdownMenuButton company="vinci" disabled>Showcase à venir</DropdownMenuButton>
+      <DropdownMenuButton company="conseil-constitutionnel" disabled>Showcase à venir</DropdownMenuButton>
     </div>
   ),
 };
@@ -108,8 +100,7 @@ export const TousLesEtats: Story = {
 export const Playground: Story = {
   args: {
     children: 'Odaptos',
-    src: LOGO_PLACEHOLDER,
-    alt: 'Logo Odaptos',
+    company: 'odaptos',
     activated: false,
     rightIcon: false,
     disabled: false,

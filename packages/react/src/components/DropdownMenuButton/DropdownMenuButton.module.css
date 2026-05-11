@@ -19,6 +19,7 @@
   box-sizing: border-box;
 }
 
+/* Hover — couleur neutre (défaut sans company) */
 .dropdownMenuButton:hover:not(:disabled) {
   background-color: var(--color-neutral-200);
   border-color: var(--color-neutral-300);
@@ -32,6 +33,26 @@
 .dropdownMenuButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* ─── Couleurs de marque par compagnie (hover activé) ───────────────────────── */
+
+.company-odaptos:hover:not(:disabled) {
+  background-color: var(--color-deep-sea-100);
+  border-color: var(--color-deep-sea-300);
+  color: var(--color-deep-sea-600);
+}
+
+.company-bpce:hover:not(:disabled) {
+  background-color: var(--color-maroon-flush-marroon-flush_100);
+  border-color: var(--color-maroon-flush-marroon-flush_300);
+  color: var(--color-maroon-flush-marroon-flush_900);
+}
+
+.company-ibp:hover:not(:disabled) {
+  background-color: var(--color-purple-mountain-200);
+  border-color: var(--color-purple-mountain-500);
+  color: var(--color-purple-mountain-800);
 }
 
 /* ─── Logo frame ─────────────────────────────────────────────────────────────── */
