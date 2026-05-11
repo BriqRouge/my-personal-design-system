@@ -1,4 +1,4 @@
-﻿import { render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import { describe, expect, it, vi } from 'vitest';
@@ -21,7 +21,7 @@ describe('Button — rendu', () => {
   });
 
   it('transmet aria-label au bouton', () => {
-    render(<Button aria-label="Supprimer le projet" />);
+    render(<Button aria-label="Supprimer le projet">{null}</Button>);
     expect(screen.getByRole('button', { name: 'Supprimer le projet' })).toBeInTheDocument();
   });
 
@@ -58,8 +58,8 @@ describe('Button — icônes', () => {
     expect(screen.getByTestId('icon-right')).toBeInTheDocument();
   });
 
-  it('peut afficher uniquement une icône sans children', () => {
-    render(<Button aria-label="Supprimer" leftIcon={<svg data-testid="icon" />} />);
+  it('peut afficher uniquement une icône sans texte', () => {
+    render(<Button aria-label="Supprimer" leftIcon={<svg data-testid="icon" />}>{null}</Button>);
     expect(screen.getByTestId('icon')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Supprimer' })).toBeInTheDocument();
   });
@@ -117,7 +117,7 @@ describe('Button — accessibilité', () => {
 
   it('icon-only avec aria-label : aucune violation axe', async () => {
     const { container } = render(
-      <Button aria-label="Supprimer le projet" leftIcon={<svg aria-hidden="true" />} />
+      <Button aria-label="Supprimer le projet" leftIcon={<svg aria-hidden="true" />}>{null}</Button>
     );
     expect(await axe(container)).toHaveNoViolations();
   });

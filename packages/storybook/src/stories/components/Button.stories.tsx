@@ -51,6 +51,7 @@ export const Default: Story = {
 };
 
 export const Variants: Story = {
+  args: { children: 'Variants' },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <Button variant="contained">Contained</Button>
@@ -63,6 +64,7 @@ export const Variants: Story = {
 };
 
 export const Tailles: Story = {
+  args: { children: 'Tailles' },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <Button size="nm">Normal (nm)</Button>
@@ -72,6 +74,7 @@ export const Tailles: Story = {
 };
 
 export const Disabled: Story = {
+  args: { children: 'Disabled' },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <Button disabled variant="contained">Contained désactivé</Button>

@@ -1,28 +1,35 @@
-﻿import { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import styles from './Button.module.css';
 
-export type ButtonVariant = 'contained' | 'outlined';
-export type ButtonColorScheme = 'default' | 'light' | 'dark';
-export type ButtonSize = 'nm' | 'md';
+type ButtonVariant = 'contained' | 'outlined';
+type ButtonColorScheme = 'default' | 'light' | 'dark';
+type ButtonSize = 'nm' | 'md';
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Type visuel du bouton */
   variant?: ButtonVariant;
+  /** Schéma de couleur — 'default' pour contained, 'light'|'dark' pour outlined */
   colorScheme?: ButtonColorScheme;
+  /** Taille du bouton */
   size?: ButtonSize;
+  /** Icône à gauche du label */
   leftIcon?: React.ReactNode;
+  /** Icône à droite du label */
   rightIcon?: React.ReactNode;
+  /** Contenu textuel du bouton */
+  children: React.ReactNode;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant = 'contained',
       colorScheme = 'default',
       size = 'nm',
-      children,
       leftIcon,
       rightIcon,
-      disabled,
+      disabled = false,
+      children,
       className,
       type = 'button',
       ...props
@@ -67,3 +74,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
+
+export { Button };
+export type { ButtonProps, ButtonVariant, ButtonColorScheme, ButtonSize };
