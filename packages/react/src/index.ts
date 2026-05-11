@@ -6,3 +6,6 @@ export type { FrameLogoProps } from './components/FrameLogo';
 
 export { LogoCompanies } from './components/LogoCompanies';
 export type { LogoCompaniesProps, LogoCompany, LogoSize } from './components/LogoCompanies';
+
+export { DropdownMenuButton } from './components/DropdownMenuButton';
+export type { DropdownMenuButtonProps } from './components/DropdownMenuButton';
