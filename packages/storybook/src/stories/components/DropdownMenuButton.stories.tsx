@@ -28,11 +28,11 @@ const meta = {
       control: 'text',
     },
     rightIcon: {
-      description: 'Affiche l'icône de lien externe',
+      description: "Affiche l'icône de lien externe",
       control: 'boolean',
     },
     activated: {
-      description: 'Indique si cet item est l'item actif',
+      description: "Indique si cet item est l'item actif",
       control: 'boolean',
     },
     disabled: {
