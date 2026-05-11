@@ -1,4 +1,4 @@
-﻿/* ─── Base ─────────────────────────────────────────────────────────────────── */
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
 
 .button {
   display: inline-flex;
@@ -16,13 +16,7 @@
   transition:
     background-color 150ms ease-out,
     border-color 150ms ease-out,
-    color 150ms ease-out,
-    opacity 150ms ease-out;
-}
-
-.button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+    color 150ms ease-out;
 }
 
 /* ─── Icônes ────────────────────────────────────────────────────────────────── */
@@ -44,16 +38,19 @@
   min-width: var(--sizing-button-nm);
   padding-top: var(--spacing-component-sm);
   padding-bottom: var(--spacing-component-sm);
-  padding-left: var(--spacing-component-md);
-  padding-right: var(--spacing-component-md);
+  padding-left: var(--sizing-x3);
+  padding-right: var(--sizing-x3);
   font-size: var(--typography-font-size-sm);
 }
 
 .size-md {
-  --icon-size: var(--sizing-x6);
+  --icon-size: var(--sizing-x5);
   height: var(--sizing-x12);
   min-width: var(--sizing-x14);
-  padding: var(--spacing-component-md);
+  padding-top: var(--spacing-component-sm);
+  padding-bottom: var(--spacing-component-sm);
+  padding-left: var(--spacing-x3-5);
+  padding-right: var(--spacing-x3-5);
   font-size: var(--typography-font-size-base);
 }
 
@@ -78,7 +75,7 @@
 }
 
 .variant-outlined.color-scheme-light:hover:not(:disabled) {
-  background-color: var(--color-background-button-idle);
+  background-color: var(--color-background-button-hovered);
   border-color: var(--color-border-button-contained);
   color: var(--color-text-button-contained);
 }
@@ -97,6 +94,15 @@
   color: var(--color-text-button-outline-white);
 }
 
+/* ─── État désactivé ────────────────────────────────────────────────────────── */
+
+.button:disabled {
+  background-color: var(--color-background-button-disabled);
+  border-color: var(--color-border-button-disabled);
+  color: var(--color-text-button-disabled);
+  cursor: not-allowed;
+}
+
 /* ─── Focus visible ─────────────────────────────────────────────────────────── */
 
 .button:focus {
@@ -104,6 +110,6 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-text-focus, currentColor);
+  outline: 2px solid var(--color-border-button-focus);
   outline-offset: 2px;
 }
