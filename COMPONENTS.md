@@ -73,3 +73,36 @@ interface ButtonProps {
 - Taille `nm` = 40px de hauteur, `md` = 48px de hauteur
 - État disabled : couleurs dédiées (pas d'opacité)
 - Toujours fournir `aria-label` si le bouton ne contient que des icônes — passer `children={null}`
+
+---
+
+### FrameLogo
+
+**Package :** `@brique-rouge/react`
+**Chemin :** `packages/react/src/components/FrameLogo/`
+
+#### API
+
+```ts
+interface FrameLogoProps extends React.HTMLAttributes<HTMLDivElement> {
+  src:   string;           // requis — URL de l'image
+  alt?:  string;           // défaut: '' (décoratif)
+}
+```
+
+#### Tokens CSS utilisés
+
+| Token | Valeur | Usage |
+|-------|--------|-------|
+| `--sizing-x6` | `24px` | Largeur et hauteur du conteneur |
+| `--border-radius-sm` | `4px` | Arrondi du conteneur |
+| `--color-neutral-100` | `#f5f5f5` | Fond fallback si image absente |
+| `--elevation-1-key-shadow-*` | — | Ombre portée (key layer) |
+| `--elevation-1-ambient-shadow-*` | — | Ombre portée (ambient layer) |
+
+#### Règles d'usage
+
+- Conteneur fixe 24×24px, `overflow: hidden`, `flex-shrink: 0`
+- Image en `object-fit: cover` — toujours passer une URL valide
+- Si le logo est purement décoratif, laisser `alt=""` (défaut)
+- Si le logo est informatif, renseigner un `alt` descriptif

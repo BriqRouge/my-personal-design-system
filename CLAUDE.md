@@ -203,6 +203,14 @@ S'applique à **tout travail direct dans Figma via `use_figma`** (création de f
 - **Padding** : nm → 8px vertical / 12px horizontal (`--sizing-x3`), md → 8px vertical / 14px horizontal (`--spacing-x3-5`)
 - **Tests** : 18 tests — 18 passants
 
+### FrameLogo (`packages/react/src/components/FrameLogo/`)
+- **Commit** : `49a78d7`
+- **Fichiers** : `FrameLogo.tsx`, `FrameLogo.module.css`, `FrameLogo.test.tsx`, `index.ts`
+- **Story** : `packages/storybook/src/stories/components/FrameLogo.stories.tsx`
+- **API** : `src` (requis), `alt` (défaut `''`) + props HTML natives (`HTMLDivElement`)
+- **Tokens** : `--sizing-x6` (24×24px), `--border-radius-sm` (4px), `--color-neutral-100` (fond fallback), `--elevation-1-*` (key + ambient shadow)
+- **Tests** : 8 tests — 8 passants
+
 ---
 
 ## 10. Tests
