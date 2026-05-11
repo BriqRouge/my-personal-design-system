@@ -5,7 +5,13 @@ const meta = {
   title: 'Composants/Button',
   component: Button,
   tags: ['autodocs'],
-  layout: 'centered',
+  parameters: {
+    layout: 'centered',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/NZtxQVYKRqeaGcC7hT5pjw?node-id=1345-21426',
+    },
+  },
   argTypes: {
     variant: {
       description: 'Style visuel du bouton',
@@ -45,6 +51,7 @@ export const Default: Story = {
 };
 
 export const Variants: Story = {
+  args: { children: 'Variants' },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <Button variant="contained">Contained</Button>
@@ -57,6 +64,7 @@ export const Variants: Story = {
 };
 
 export const Tailles: Story = {
+  args: { children: 'Tailles' },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <Button size="nm">Normal (nm)</Button>
@@ -66,6 +74,7 @@ export const Tailles: Story = {
 };
 
 export const Disabled: Story = {
+  args: { children: 'Disabled' },
   render: () => (
     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
       <Button disabled variant="contained">Contained désactivé</Button>
