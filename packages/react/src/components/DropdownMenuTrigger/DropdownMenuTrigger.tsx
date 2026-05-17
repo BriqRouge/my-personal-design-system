@@ -107,11 +107,13 @@ const DropdownMenuTrigger = forwardRef<HTMLDivElement, DropdownMenuTriggerProps>
         >
           {triggerLabel}
         </Button>
-        {isOpen && (
-          <DropdownMenu id={menuId} className={styles.menu}>
-            {children}
-          </DropdownMenu>
-        )}
+        <DropdownMenu
+          id={menuId}
+          className={styles.menu}
+          aria-hidden={isOpen ? undefined : true}
+        >
+          {children}
+        </DropdownMenu>
       </div>
     );
   }
