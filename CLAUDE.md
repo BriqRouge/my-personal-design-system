@@ -211,6 +211,15 @@ S'applique à **tout travail direct dans Figma via `use_figma`** (création de f
 - **Tokens** : `--sizing-x6` (24×24px), `--border-radius-sm` (4px), `--color-neutral-100` (fond fallback), `--elevation-1-*` (key + ambient shadow)
 - **Tests** : 8 tests — 8 passants
 
+### DropdownMenu (`packages/react/src/components/DropdownMenu/`)
+- **Commit** : `36b8093`
+- **Fichiers** : `DropdownMenu.tsx`, `DropdownMenu.module.css`, `DropdownMenu.test.tsx`, `index.ts`
+- **Story** : `packages/storybook/src/stories/components/DropdownMenu.stories.tsx`
+- **API** : `children` (requis), `className` + props HTML natives (`HTMLDivElement`), `role="menu"` natif
+- **Tokens** : `--color-neutral-100` (fond), `--color-neutral-300` (bordure 0.5px solid), `--border-radius-lg` (border-radius)
+- **Layout** : flex column, gap 8px, padding 8px, align-items flex-start
+- **Tests** : 7 tests — 7 passants
+
 ---
 
 ## 10. Tests
