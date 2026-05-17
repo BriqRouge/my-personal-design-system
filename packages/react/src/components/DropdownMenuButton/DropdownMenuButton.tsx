@@ -1,12 +1,15 @@
 import { forwardRef } from 'react';
+import { LogoCompanies, type LogoCompany } from '../LogoCompanies';
 import styles from './DropdownMenuButton.module.css';
 
 interface DropdownMenuButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /** Contenu textuel (nom de la compagnie ou du projet) */
   children: React.ReactNode;
-  /** URL du logo */
-  src: string;
-  /** Texte alternatif du logo */
+  /** Identifiant de la compagnie — détermine le logo et la couleur d'accent */
+  company?: LogoCompany;
+  /** URL du logo (ignoré si company est fourni) */
+  src?: string;
+  /** Texte alternatif du logo (ignoré si company est fourni) */
   alt?: string;
   /** Affiche l'icône de lien externe */
   rightIcon?: boolean;
@@ -18,6 +21,7 @@ const DropdownMenuButton = forwardRef<HTMLButtonElement, DropdownMenuButtonProps
   (
     {
       children,
+      company,
       src,
       alt = '',
       rightIcon = false,
@@ -30,6 +34,7 @@ const DropdownMenuButton = forwardRef<HTMLButtonElement, DropdownMenuButtonProps
   ) => {
     const classes = [
       styles.dropdownMenuButton,
+      company && styles[`company-${company}`],
       activated && styles['is-activated'],
       className,
     ]
@@ -42,12 +47,17 @@ const DropdownMenuButton = forwardRef<HTMLButtonElement, DropdownMenuButtonProps
         type="button"
         data-component="ds-br-dropdown-menu-button"
         data-activated={activated}
+        data-company={company}
         className={classes}
         disabled={disabled}
         {...props}
       >
         <div className={styles.logoFrame}>
-          <img src={src} alt={alt} className={styles.logoImage} />
+          {company ? (
+            <LogoCompanies company={company} size={16} />
+          ) : src ? (
+            <img src={src} alt={alt} className={styles.logoImage} />
+          ) : null}
         </div>
         <span className={styles.label}>{children}</span>
         {rightIcon && (

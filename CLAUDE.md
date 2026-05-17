@@ -108,6 +108,7 @@ Figma Variables â€” fichier `NZtxQVYKRqeaGcC7hT5pjw`
 - Si quelque chose semble Ã©trange ou incohÃ©rent : **le signaler, mais l'implÃ©menter quand mÃªme**.
 - C'est Romain qui dÃ©cide si c'est une erreur ou une intention design.
 - **Ne jamais corriger, amÃ©liorer ou interprÃ©ter le design de sa propre initiative.**
+- **En cas de doute entre ce que montre Figma et ce que suggÃ¨re une bonne pratique technique : signaler le doute â€" ne jamais trancher seul.**
 
 ### 6.2 Anti-rÃ©gression
 - Identifier le pÃ©rimÃ¨tre exact de chaque changement avant de toucher au code.
