@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-component-sm);
-  width: 213px;
+  width: 100%;
   height: var(--sizing-x10);
   padding: var(--spacing-component-sm);
   border-radius: var(--border-radius-dropdown-menu-button);
