@@ -218,8 +218,37 @@ S'applique à **tout travail direct dans Figma via `use_figma`** (création de f
 - **Story** : `packages/storybook/src/stories/components/DropdownMenu.stories.tsx`
 - **API** : `children` (requis), `className` + props HTML natives (`HTMLDivElement`), `role="menu"` natif
 - **Tokens** : `--color-neutral-100` (fond), `--color-neutral-300` (bordure 0.5px solid), `--border-radius-lg` (border-radius)
-- **Layout** : flex column, gap 8px, padding 8px, align-items flex-start
+- **Layout** : flex column, gap 8px, padding 8px, align-items **stretch** (les enfants remplissent la largeur du menu)
 - **Tests** : 7 tests — 7 passants
+
+### LogoCompanies (`packages/react/src/components/LogoCompanies/`)
+- **Fichiers** : `LogoCompanies.tsx`, `LogoCompanies.module.css`, `LogoCompanies.test.tsx`, `index.ts`
+- **Story** : `packages/storybook/src/stories/components/LogoCompanies.stories.tsx`
+- **API** : `company` (`bpce`|`conseil-constitutionnel`|`odaptos`|`ibp`|`vinci`|`tidal`|`squared-icon`|`steam`, défaut `squared-icon`), `size` (`32`|`16`|`12`|`8`, défaut `32`) + props HTML natives (`HTMLDivElement`)
+- **Accessibilité** : `role="img"` + `aria-label` auto-généré depuis le nom de la compagnie, logo `<img>` avec `aria-hidden="true"`
+- **data-attributes** : `data-company`, `data-size`
+- **Tests** : 20 tests — 20 passants
+
+### DropdownMenuButton (`packages/react/src/components/DropdownMenuButton/`)
+- **Commit** : `63a6751`
+- **Fichiers** : `DropdownMenuButton.tsx`, `DropdownMenuButton.module.css`, `DropdownMenuButton.test.tsx`, `index.ts`
+- **Story** : `packages/storybook/src/stories/components/DropdownMenuButton.stories.tsx`
+- **API** : `children` (requis), `company` (`odaptos`|`bpce`|`ibp`), `src` (URL logo custom, ignoré si `company` fourni), `alt` (défaut `''`), `rightIcon` (booléen, icône lien externe), `activated` (booléen, item sélectionné), `disabled` + props HTML natives (`HTMLButtonElement`)
+- **Tokens** : `--spacing-component-sm` (gap + padding), `--sizing-x10` (hauteur), `--border-radius-dropdown-menu-button`, couleurs accent par compagnie (`--color-deep-sea-*`, `--color-maroon-flush-*`, `--color-purple-mountain-*`)
+- **Layout** : flex row, `width: 100%` (responsive — remplit le DropdownMenu), hauteur fixe via `--sizing-x10`
+- **data-attributes** : `data-activated`, `data-company`
+- **Tests** : 20 tests — 20 passants
+
+### DropdownMenuTrigger (`packages/react/src/components/DropdownMenuTrigger/`)
+- **Commit** : `1d457c9`
+- **Fichiers** : `DropdownMenuTrigger.tsx`, `DropdownMenuTrigger.module.css`, `DropdownMenuTrigger.test.tsx`, `index.ts`
+- **Story** : `packages/storybook/src/stories/components/DropdownMenuTrigger.stories.tsx`
+- **API** : `children` (requis), `triggerLabel` (requis), `triggerLeftIcon`, `triggerRightIcon`, `triggerVariant` (`contained`|`outlined`, défaut `contained`), `triggerColorScheme` (`default`|`light`|`dark`, défaut `default`), `triggerSize` (`nm`|`md`, défaut `nm`), `open` (mode contrôlé), `onOpenChange` + props HTML natives (`HTMLDivElement`)
+- **État** : géré en interne (uncontrolled) ou via `open`/`onOpenChange` (controlled). Fermeture Escape + clic extérieur.
+- **Animation** : rendu permanent du menu piloté par `aria-hidden` (pas de montage/démontage React). Entrée 200ms `cubic-bezier(0.16, 1, 0.3, 1)` (expo-out), sortie 120ms `cubic-bezier(0.4, 0, 1, 1)` (ease-in). `opacity` + `translateY(-6px→0)`. `visibility` délayée pour exclure le menu fermé du tab order et des lecteurs d'écran.
+- **Layout** : inline-flex column, gap 4px, position relative
+- **data-attributes** : `data-state` (`open`|`closed`)
+- **Tests** : 20 tests — 20 passants
 
 ---
 
