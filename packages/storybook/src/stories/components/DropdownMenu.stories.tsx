@@ -30,7 +30,7 @@ export const Default: Story = {
     <DropdownMenu>
       <DropdownMenuButton company="odaptos">Odaptos</DropdownMenuButton>
       <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
-      <DropdownMenuButton company="ibp" rightIcon activated>
+      <DropdownMenuButton company="ibp" activated>
         iBP
       </DropdownMenuButton>
     </DropdownMenu>
@@ -77,7 +77,7 @@ export const Playground: Story = {
     <DropdownMenu>
       <DropdownMenuButton company="odaptos">Odaptos</DropdownMenuButton>
       <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
-      <DropdownMenuButton company="ibp" rightIcon>iBP</DropdownMenuButton>
+      <DropdownMenuButton company="ibp">iBP</DropdownMenuButton>
       <DropdownMenuButton company="vinci" disabled>Showcase à venir</DropdownMenuButton>
       <DropdownMenuButton company="conseil-constitutionnel" disabled>
         Showcase à venir

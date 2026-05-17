@@ -64,16 +64,6 @@ export const Activated: Story = {
   },
 };
 
-export const AvecLienExterne: Story = {
-  name: 'Avec lien externe',
-  args: {
-    children: 'iBP',
-    company: 'ibp',
-    activated: true,
-    rightIcon: true,
-  },
-};
-
 export const Disabled: Story = {
   name: 'Désactivé (projet à venir)',
   args: {
@@ -90,7 +80,7 @@ export const CouleursDeMarque: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
       <DropdownMenuButton company="odaptos">Odaptos</DropdownMenuButton>
       <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
-      <DropdownMenuButton company="ibp" rightIcon>iBP</DropdownMenuButton>
+      <DropdownMenuButton company="ibp">iBP</DropdownMenuButton>
       <DropdownMenuButton company="vinci" disabled>Showcase à venir</DropdownMenuButton>
       <DropdownMenuButton company="conseil-constitutionnel" disabled>Showcase à venir</DropdownMenuButton>
     </div>
