@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { DropdownMenu, DropdownMenuButton } from '@brique-rouge/react';
 
-const LOGO = 'https://placehold.co/16x16/e5e5e5/737373?text=L';
-
 const meta = {
   title: 'Composants/DropdownMenu',
   component: DropdownMenu,
@@ -30,9 +28,9 @@ export const Default: Story = {
   args: { children: '' },
   render: () => (
     <DropdownMenu>
-      <DropdownMenuButton src={LOGO} alt="Logo Odaptos">Odaptos</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo BPCE">BPCE</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo iBP" rightIcon activated>
+      <DropdownMenuButton company="odaptos">Odaptos</DropdownMenuButton>
+      <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
+      <DropdownMenuButton company="ibp" rightIcon activated>
         iBP
       </DropdownMenuButton>
     </DropdownMenu>
@@ -44,17 +42,17 @@ export const AvecItemsDesactives: Story = {
   args: { children: '' },
   render: () => (
     <DropdownMenu>
-      <DropdownMenuButton src={LOGO} alt="Logo BPCE">BPCE</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo Odaptos" activated>
+      <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
+      <DropdownMenuButton company="odaptos" activated>
         Odaptos
       </DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo iBP" disabled>
+      <DropdownMenuButton company="ibp" disabled>
         Showcase à venir
       </DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo Conseil" disabled>
+      <DropdownMenuButton company="conseil-constitutionnel" disabled>
         Showcase à venir
       </DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo Vinci" disabled>
+      <DropdownMenuButton company="vinci" disabled>
         Showcase à venir
       </DropdownMenuButton>
     </DropdownMenu>
@@ -66,7 +64,7 @@ export const UnSeulItem: Story = {
   args: { children: '' },
   render: () => (
     <DropdownMenu>
-      <DropdownMenuButton src={LOGO} alt="Logo Odaptos" activated>
+      <DropdownMenuButton company="odaptos" activated>
         Odaptos
       </DropdownMenuButton>
     </DropdownMenu>
@@ -77,11 +75,11 @@ export const Playground: Story = {
   args: { children: '' },
   render: () => (
     <DropdownMenu>
-      <DropdownMenuButton src={LOGO} alt="Logo Odaptos">Odaptos</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo BPCE">BPCE</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo iBP" rightIcon>iBP</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo Vinci" disabled>Showcase à venir</DropdownMenuButton>
-      <DropdownMenuButton src={LOGO} alt="Logo Conseil" disabled>
+      <DropdownMenuButton company="odaptos">Odaptos</DropdownMenuButton>
+      <DropdownMenuButton company="bpce">BPCE</DropdownMenuButton>
+      <DropdownMenuButton company="ibp" rightIcon>iBP</DropdownMenuButton>
+      <DropdownMenuButton company="vinci" disabled>Showcase à venir</DropdownMenuButton>
+      <DropdownMenuButton company="conseil-constitutionnel" disabled>
         Showcase à venir
       </DropdownMenuButton>
     </DropdownMenu>
