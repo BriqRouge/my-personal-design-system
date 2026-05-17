@@ -1,0 +1,23 @@
+.dropdownMenuTrigger {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+}
+
+/* Fallback #0000001a = valeur correcte du token manquant en Figma Variables.
+   À supprimer une fois --elevation-3-ambient-shadow-color ajouté et le build relancé. */
+.menu {
+  box-shadow:
+    var(--elevation-3-key-shadow-offset-x)
+    var(--elevation-3-key-shadow-offset-y)
+    var(--elevation-3-key-shadow-blur)
+    var(--elevation-3-key-shadow-spread)
+    var(--elevation-3-key-shadow-color),
+    var(--elevation-3-ambient-shadow-offset-x)
+    var(--elevation-3-ambient-shadow-offset-y)
+    var(--elevation-3-ambient-shadow-blur)
+    var(--elevation-3-ambient-shadow-spread)
+    var(--elevation-3-ambient-shadow-color, #0000001a);
+}

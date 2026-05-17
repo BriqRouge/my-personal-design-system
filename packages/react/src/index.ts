@@ -12,3 +12,6 @@ export type { DropdownMenuButtonProps } from './components/DropdownMenuButton';
 
 export { DropdownMenu } from './components/DropdownMenu';
 export type { DropdownMenuProps } from './components/DropdownMenu';
+
+export { DropdownMenuTrigger } from './components/DropdownMenuTrigger';
+export type { DropdownMenuTriggerProps } from './components/DropdownMenuTrigger';
