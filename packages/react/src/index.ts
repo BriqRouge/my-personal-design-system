@@ -9,3 +9,6 @@ export type { LogoCompaniesProps, LogoCompany, LogoSize } from './components/Log
 
 export { DropdownMenuButton } from './components/DropdownMenuButton';
 export type { DropdownMenuButtonProps } from './components/DropdownMenuButton';
+
+export { DropdownMenu } from './components/DropdownMenu';
+export type { DropdownMenuProps } from './components/DropdownMenu';
