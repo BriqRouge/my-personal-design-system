@@ -244,11 +244,19 @@ S'applique à **tout travail direct dans Figma via `use_figma`** (création de f
 - **Fichiers** : `DropdownMenuTrigger.tsx`, `DropdownMenuTrigger.module.css`, `DropdownMenuTrigger.test.tsx`, `index.ts`
 - **Story** : `packages/storybook/src/stories/components/DropdownMenuTrigger.stories.tsx`
 - **API** : `children` (requis), `triggerLabel` (requis), `triggerLeftIcon`, `triggerRightIcon`, `triggerVariant` (`contained`|`outlined`, défaut `contained`), `triggerColorScheme` (`default`|`light`|`dark`, défaut `default`), `triggerSize` (`nm`|`md`, défaut `nm`), `open` (mode contrôlé), `onOpenChange` + props HTML natives (`HTMLDivElement`)
-- **État** : géré en interne (uncontrolled) ou via `open`/`onOpenChange` (controlled). Fermeture Escape + clic extérieur.
+- **État** : géré en interne (uncontrolled) ou via `open`/`onOpenChange` (controlled).
+- **Interactions** :
+  - `mouseenter` container → ouvre immédiatement
+  - `mouseleave` container → ferme après **150ms** (timer annulable si re-enter avant expiration)
+  - `onFocus` trigger → ouvre (accessibilité clavier, WCAG 1.4.13)
+  - `onBlur` container → ferme après 150ms si le focus quitte la zone
+  - Clic trigger → ouvre uniquement (**pas de toggle** — évite la fermeture accidentelle en hover)
+  - Escape / clic extérieur → fermeture immédiate, timer annulé
+- **Dead zone** : inexistante — le `gap: 4px` entre trigger et menu est à l'intérieur du container ; `mouseenter`/`mouseleave` sont écoutés sur le container, pas sur les enfants
 - **Animation** : rendu permanent du menu piloté par `aria-hidden` (pas de montage/démontage React). Entrée 200ms `cubic-bezier(0.16, 1, 0.3, 1)` (expo-out), sortie 120ms `cubic-bezier(0.4, 0, 1, 1)` (ease-in). `opacity` + `translateY(-6px→0)`. `visibility` délayée pour exclure le menu fermé du tab order et des lecteurs d'écran.
 - **Layout** : inline-flex column, gap 4px, position relative
 - **data-attributes** : `data-state` (`open`|`closed`)
-- **Tests** : 20 tests — 20 passants
+- **Tests** : 24 tests — 24 passants
 
 ---
 
