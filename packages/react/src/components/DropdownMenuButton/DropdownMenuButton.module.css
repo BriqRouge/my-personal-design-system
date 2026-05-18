@@ -11,8 +11,8 @@
   border: 0.5px solid transparent;
   background-color: transparent;
   cursor: pointer;
-  font-family: var(--typography-font-family-sans);
-  font-size: var(--typography-font-size-base);
+  font-family: var(--typography-dropdown-menu-button-font-family);
+  font-size: var(--typography-dropdown-menu-button-font-size);
   font-weight: var(--typography-font-weight-medium);
   color: var(--color-text-button-contained);
   text-align: left;

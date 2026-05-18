@@ -8,7 +8,6 @@
   border: 2px solid transparent;
   border-radius: var(--border-radius-button);
   cursor: pointer;
-  font-family: var(--typography-body-font-family, inherit);
   font-weight: var(--typography-label-font-weight);
   line-height: 1;
   white-space: nowrap;
@@ -40,7 +39,8 @@
   padding-bottom: var(--spacing-component-sm);
   padding-left: var(--sizing-x3);
   padding-right: var(--sizing-x3);
-  font-size: var(--typography-font-size-sm);
+  font-family: var(--typography-button-nm-font-family);
+  font-size: var(--typography-button-nm-font-size);
 }
 
 .size-md {
@@ -51,7 +51,8 @@
   padding-bottom: var(--spacing-component-sm);
   padding-left: var(--spacing-x3-5);
   padding-right: var(--spacing-x3-5);
-  font-size: var(--typography-font-size-base);
+  font-family: var(--typography-button-md-font-family);
+  font-size: var(--typography-button-md-font-size);
 }
 
 /* ─── Variant : contained ───────────────────────────────────────────────────── */
