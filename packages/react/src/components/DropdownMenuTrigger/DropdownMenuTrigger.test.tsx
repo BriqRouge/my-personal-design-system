@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { DropdownMenuTrigger } from './DropdownMenuTrigger';
 
 const LABEL = 'Sélection projets';
@@ -61,12 +61,18 @@ describe('DropdownMenuTrigger — ouverture / fermeture', () => {
     expect(container.firstChild).toHaveAttribute('data-state', 'open');
   });
 
-  it('ferme le menu au deuxième clic sur le trigger', async () => {
-    render(<DropdownMenuTrigger triggerLabel={LABEL}><div>item</div></DropdownMenuTrigger>);
+  it('le menu reste ouvert au deuxième clic sur le trigger', async () => {
+    render(<DropdownMenuTrigger triggerLabel={LABEL}><div role="menuitem">item</div></DropdownMenuTrigger>);
     const btn = screen.getByRole('button', { name: LABEL });
     await userEvent.click(btn);
     await userEvent.click(btn);
-    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+    expect(screen.getByRole('menu')).toBeInTheDocument();
+  });
+
+  it('ouvre le menu au focus du trigger', () => {
+    render(<DropdownMenuTrigger triggerLabel={LABEL}><div role="menuitem">item</div></DropdownMenuTrigger>);
+    fireEvent.focus(screen.getByRole('button', { name: LABEL }));
+    expect(screen.getByRole('menu')).toBeInTheDocument();
   });
 
   it('ferme le menu avec la touche Escape', async () => {
@@ -88,6 +94,44 @@ describe('DropdownMenuTrigger — ouverture / fermeture', () => {
     expect(screen.getByRole('menu')).toBeInTheDocument();
     await userEvent.click(screen.getByRole('button', { name: 'Dehors' }));
     expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+  });
+});
+
+describe('DropdownMenuTrigger — hover', () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  it('ouvre le menu au mouseenter sur le container', () => {
+    const { container } = render(
+      <DropdownMenuTrigger triggerLabel={LABEL}><div role="menuitem">item</div></DropdownMenuTrigger>
+    );
+    fireEvent.mouseEnter(container.firstChild!);
+    expect(screen.getByRole('menu')).toBeInTheDocument();
+  });
+
+  it('ferme le menu après 150ms au mouseleave du container', () => {
+    vi.useFakeTimers();
+    const { container } = render(
+      <DropdownMenuTrigger triggerLabel={LABEL}><div role="menuitem">item</div></DropdownMenuTrigger>
+    );
+    fireEvent.mouseEnter(container.firstChild!);
+    fireEvent.mouseLeave(container.firstChild!);
+    expect(screen.getByRole('menu')).toBeInTheDocument();
+    act(() => { vi.advanceTimersByTime(150); });
+    expect(screen.queryByRole('menu')).not.toBeInTheDocument();
+  });
+
+  it('annule la fermeture si la souris re-entre avant 150ms', () => {
+    vi.useFakeTimers();
+    const { container } = render(
+      <DropdownMenuTrigger triggerLabel={LABEL}><div role="menuitem">item</div></DropdownMenuTrigger>
+    );
+    fireEvent.mouseEnter(container.firstChild!);
+    fireEvent.mouseLeave(container.firstChild!);
+    fireEvent.mouseEnter(container.firstChild!);
+    act(() => { vi.advanceTimersByTime(150); });
+    expect(screen.getByRole('menu')).toBeInTheDocument();
   });
 });
 
