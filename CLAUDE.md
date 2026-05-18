@@ -200,7 +200,7 @@ S'applique à **tout travail direct dans Figma via `use_figma`** (création de f
 - **Fichiers** : `Button.tsx`, `Button.module.css`, `Button.test.tsx`, `index.ts`
 - **Story** : `packages/storybook/src/stories/components/Button.stories.tsx`
 - **API** : `children` (requis), `variant` (`contained`|`outlined`), `colorScheme` (`default`|`light`|`dark`), `size` (`nm`|`md`), `leftIcon`, `rightIcon`, `disabled` + props HTML natives
-- **Tokens** : `color/background/button/idle|hovered|hovered-black|disabled`, `color/border/button/contained|outlined-white|outlined-black|focus|disabled`, `color/text/button/contained|outline-white|outline-black|disabled`, `color/icon/button/contained|outline-white|outline-black|disabled`, `border-radius/button`
+- **Tokens** : `color/background/button/idle|hovered|hovered-black|disabled`, `color/border/button/contained|outlined-white|outlined-black|focus|disabled`, `color/text/button/contained|outline-white|outline-black|disabled`, `color/icon/button/contained|outline-white|outline-black|disabled`, `border-radius/button`, `typography/button/nm` (`font-family` + `font-size` 14px), `typography/button/md` (`font-family` + `font-size` 16px)
 - **Padding** : nm → 8px vertical / 12px horizontal (`--sizing-x3`), md → 8px vertical / 14px horizontal (`--spacing-x3-5`)
 - **Tests** : 18 tests — 18 passants
 
@@ -234,7 +234,7 @@ S'applique à **tout travail direct dans Figma via `use_figma`** (création de f
 - **Fichiers** : `DropdownMenuButton.tsx`, `DropdownMenuButton.module.css`, `DropdownMenuButton.test.tsx`, `index.ts`
 - **Story** : `packages/storybook/src/stories/components/DropdownMenuButton.stories.tsx`
 - **API** : `children` (requis), `company` (`odaptos`|`bpce`|`ibp`), `src` (URL logo custom, ignoré si `company` fourni), `alt` (défaut `''`), `rightIcon` (booléen, icône lien externe), `activated` (booléen, item sélectionné), `disabled` + props HTML natives (`HTMLButtonElement`)
-- **Tokens** : `--spacing-component-sm` (gap + padding), `--sizing-x10` (hauteur), `--border-radius-dropdown-menu-button`, couleurs accent par compagnie (`--color-deep-sea-*`, `--color-maroon-flush-*`, `--color-purple-mountain-*`)
+- **Tokens** : `--spacing-component-sm` (gap + padding), `--sizing-x10` (hauteur), `--border-radius-dropdown-menu-button`, couleurs accent par compagnie (`--color-deep-sea-*`, `--color-maroon-flush-*`, `--color-purple-mountain-*`), `typography/dropdown-menu-button` (`font-family` + `font-size` 16px)
 - **Layout** : flex row, `width: 100%` (responsive — remplit le DropdownMenu), hauteur fixe via `--sizing-x10`
 - **data-attributes** : `data-activated`, `data-company`
 - **Tests** : 20 tests — 20 passants
